@@ -25,6 +25,9 @@ app.use('/api/posts', postRoutes)
 app.use(notFound);
 app.use(errorHandler);
 
+app.get('/', (req, res) => {
+    res.send("Hello World")
+})
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
