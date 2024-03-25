@@ -12,7 +12,13 @@ const app = express();
 
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true, origin: "http://localhost:5173" }))
+
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+}))
+
 app.use(upload())
 app.use('/uploads', express.static(__dirname + '/uploads'))
 
@@ -25,9 +31,6 @@ app.use('/api/posts', postRoutes)
 app.use(notFound);
 app.use(errorHandler);
 
-app.get('/', (req, res) => {
-    res.send("Hello World")
-})
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
