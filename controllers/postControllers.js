@@ -121,8 +121,6 @@ const editPost = async (req, res, next) => {
         const oldPost = await postModel.findById(postId);
 
         //making sure that the logged in user and the creator of the post is same user.
-        console.log(req.user.id);
-        console.log(oldPost.creator);
         if (req.user.id != oldPost.creator) {
             return next(new HttpError("Post couldn't edited.", 403))
         }
