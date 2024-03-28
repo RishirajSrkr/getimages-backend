@@ -229,11 +229,6 @@ const getAuthors = async (req, res, next) => {
     }
 }
 
-
-const myname = (req, res) => {
-    res.send("Rishiraj")
-}
-
 module.exports = {
     registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser,myname
 }

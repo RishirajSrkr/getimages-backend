@@ -3,11 +3,10 @@ const router = express.Router();
 const authMiddleware = require('../middleware/authMiddleware')
 
 const {
-    registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser,myname
+    registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser
 } = require('../controllers/userControllers')
 
 
-router.get('/', myname)
 router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.get('/:id', getUser)
