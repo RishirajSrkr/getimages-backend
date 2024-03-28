@@ -36,38 +36,38 @@ app.use(notFound);
 app.use(errorHandler);
 
 
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("MongoDB Connected!");
-        app.listen(process.env.PORT, () => {
-            console.log(`Server is running on port ${process.env.PORT}`);
-        });
-    })
-    .catch((err) => {
-        console.error("Error while connecting to MongoDB:", err);
-    });
+// mongoose.connect(process.env.MONGO_URI)
+//     .then(() => {
+//         console.log("MongoDB Connected!");
+//         app.listen(process.env.PORT, () => {
+//             console.log(`Server is running on port ${process.env.PORT}`);
+//         });
+//     })
+//     .catch((err) => {
+//         console.error("Error while connecting to MongoDB:", err);
+//     });
 
 
 
 /////another way
-// async function connectMongodb() {
-//     try {
-//         await mongoose.connect(process.env.MONGO_URI)
-//         console.log("Mongo db is connected");
-//         startServer();
-//     }
-//     catch (err) {
-//         console.log("Error while connecting to mongodb", err);
-//     }
-// }
+async function connectMongodb() {
+    try {
+        await mongoose.connect(process.env.MONGO_URI)
+        console.log("Mongo db is connected");
+        startServer();
+    }
+    catch (err) {
+        console.log("Error while connecting to mongodb", err);
+    }
+}
 
-// function startServer() {
-//     app.listen(port, () => {
-//         console.log(`Server is running on port ${port}`);
-//     })
-// }
+function startServer() {
+    app.listen(process.env.PORT, () => {
+        console.log(`Server is running on port ${process.env.PORT}`);
+    })
+}
 
-// connectMongodb();
+connectMongodb();
 
 
 // very very very very important line, we need to add this if we try to deploy the server in vercel
