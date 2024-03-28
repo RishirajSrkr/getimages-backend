@@ -39,14 +39,15 @@ app.use(errorHandler);
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB Connected!");
+        app.listen(process.env.PORT, () => {
+            console.log(`Server is running on port ${process.env.PORT}`);
+        });
     })
     .catch((err) => {
         console.error("Error while connecting to MongoDB:", err);
     });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
-});
+
 
 /////another way
 // async function connectMongodb() {
