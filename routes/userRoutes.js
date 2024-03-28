@@ -6,6 +6,10 @@ const {
     registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser
 } = require('../controllers/userControllers')
 
+
+router.get('/', function(req, res) {
+    res.send("Rishiraj")
+})
 router.post('/register', registerUser)
 router.post('/login', loginUser)
 router.get('/:id', getUser)
