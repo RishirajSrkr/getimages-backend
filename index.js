@@ -68,5 +68,5 @@ mongoose.connect(process.env.MONGO_URI)
 // connectMongodb();
 
 
-
+// very very very very important line, we need to add this if we try to deploy the server in vercel
 module.exports = app;
