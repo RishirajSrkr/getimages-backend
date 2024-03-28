@@ -229,6 +229,7 @@ const getAuthors = async (req, res, next) => {
     }
 }
 
+
 module.exports = {
-    registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser,myname
+    registerUser, loginUser, getUser, getAuthors, changeAvatar, editUser
 }
