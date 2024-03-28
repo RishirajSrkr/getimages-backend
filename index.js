@@ -13,11 +13,11 @@ const app = express();
 app.use(express.json({ extended: true }))
 app.use(express.urlencoded({ extended: true }))
 
-// app.use(cors({
-//     credentials: true,
-//     origin: process.env.CLIENT_URL,
-//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-// }))
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+}))
 
 app.get("/", function(req, res){
     res.send("Successful!!");
