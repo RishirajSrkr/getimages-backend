@@ -67,3 +67,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // connectMongodb();
 
+
+
+module.exports = app;
