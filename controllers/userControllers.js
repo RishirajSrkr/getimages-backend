@@ -174,9 +174,9 @@ const editUser = async (req, res, next) => {
         if (!name || !email || !currentPassword || !newPassword || !confirmNewPassword) {
             return next(new HttpError("Fill in all the fields", 422))
         }
-if(currentPassword == newPassword){
-    return next(new HttpError("New password cannot be same as current password.", 422))
-}
+        if (currentPassword == newPassword) {
+            return next(new HttpError("New password cannot be same as current password.", 422))
+        }
         //get the user
         const user = await userModel.findById(req.user.id);
         if (!user) { return next(new HttpError("User not found.", 403)) }
