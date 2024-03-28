@@ -1,4 +1,6 @@
 require('dotenv').config()
+require('./dbConnection/db');
+
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
@@ -50,25 +52,28 @@ app.use(errorHandler);
 
 
 /////another way
-async function connectMongodb() {
-    try {
-        await mongoose.connect(process.env.MONGO_URI)
-        console.log("Mongo db is connected");
-        startServer();
-    }
-    catch (err) {
-        console.log("Error while connecting to mongodb", err);
-    }
-}
+// async function connectMongodb() {
+//     try {
+//         await mongoose.connect(process.env.MONGO_URI)
+//         console.log("Mongo db is connected");
+//         startServer();
+//     }
+//     catch (err) {
+//         console.log("Error while connecting to mongodb", err);
+//     }
+// }
 
-function startServer() {
-    app.listen(process.env.PORT, () => {
-        console.log(`Server is running on port ${process.env.PORT}`);
-    })
-}
+// function startServer() {
+//     app.listen(process.env.PORT, () => {
+//         console.log(`Server is running on port ${process.env.PORT}`);
+//     })
+// }
 
-connectMongodb();
+// connectMongodb();
 
+app.listen(process.env.PORT, function(){
+    console.log("Server is running on PORT -> ", process.env.PORT);
+})
 
 // very very very very important line, we need to add this if we try to deploy the server in vercel
 module.exports = app;
