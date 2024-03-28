@@ -14,9 +14,4 @@ router.get('/', getAuthors)
 router.post('/change-avatar', authMiddleware, changeAvatar)
 router.patch('/edit-user', authMiddleware, editUser)
 
-
-router.get('/', (req, res) => {
-    res.send(500).json({ message: "Success" })
-})
-
 module.exports = router;
