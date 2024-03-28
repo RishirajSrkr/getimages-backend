@@ -19,6 +19,10 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
 }))
 
+app.get("/", function(req, res){
+    res.send("Successful!!");
+})
+
 app.use(upload())
 app.use('/uploads', express.static(__dirname + '/uploads'))
 
